@@ -1,7 +1,5 @@
 const router = require('express').Router();
-// const db = require('../models');
 const axios = require('axios');
-
 
 router.get('/repos', (req, res) => {
   let config = {
@@ -11,10 +9,8 @@ router.get('/repos', (req, res) => {
     }
   }
 
-  // res.send(`Repo`);
   axios.get('https://api.github.com/user/repos', config)
   .then((response) => {
-    // res.send(response.data);
     res.render('repos', {
       repos: response.data
     })
